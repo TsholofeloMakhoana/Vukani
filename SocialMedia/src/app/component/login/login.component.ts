@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,53 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  loginForm!: FormGroup;
+  email: string = "";
+  password: string = "";
+
+  isLogin: boolean = true;
+  errMessage: string = "";
+
+  loginForm: FormGroup;
   submitted = false;
   
   constructor(
     private fb: FormBuilder,  
-    private router: Router
+    private router: Router,
+    private http : HttpClient
   ) { }
+
+  login()
+  {
+    console.log(this.email);
+    console.log(this.password);
+
+    let bodyData = {
+      "email" : this.email,
+      "password" : this.password
+    };
+    this.http.post("http://localhost:8080/api/login",bodyData).subscribe((resultData: any)=>
+    {
+
+      console.log(resultData);
+
+      if(resultData.status){
+
+        this.router.navigateByUrl('/home');
+
+      }else{
+
+        alert("Incorrect email or password");
+        console.log("Err login");
+
+      }
+      
+    });
+  }
 
   ngOnInit() {
     this.loginForm = this.fb.group({   
-      email: ['', [Validators.required, Validators.email]], 
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
  

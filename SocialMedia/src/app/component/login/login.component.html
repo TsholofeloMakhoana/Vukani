@@ -3,21 +3,25 @@
         <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
             <h1 class="mb-8 text-3xl text-center">Login here</h1>
 
-            <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <form class="form" [formGroup]="loginForm">
                        
             <input 
-                type="text"
+                type="email"
+                [(ngModel)]="email"
+                ngModelOptions="{standlone:true}"
                 class="block border border-grey-light w-full p-3 rounded mb-4"
                 formControlName="email" required
                 placeholder="Email" />
                           
                 <input 
                 type="password"
+                [(ngModel)]="password"
                 class="block border border-grey-light w-full p-3 rounded mb-4"
-                formControlPassword="password" required
+                formControlPassword="password"
                 placeholder="Password" />
           
             <button
+                (click)="login()"
                 id="btn-style"
                 type="submit"
                 class="w-full text-center py-3 rounded bg-green bg-slate-600  text-white block border border-grey-light p-3 mb-4 hover:bg-green-dark focus:outline-none my-1"

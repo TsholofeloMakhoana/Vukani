@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
+      password2: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
 
@@ -38,9 +39,9 @@ export class RegisterComponent implements OnInit {
   register(){
     let bodyData = {
       "firstname" : this.firstname,
-      "lastname" : this.firstname,
-      "email" : this.firstname,
-      "password" : this.firstname,
+      "lastname" : this.lastname,
+      "email" : this.email,
+      "password" : this.password,
       "password2" : this.password2
     };
     this.http.post("http://localhost:8080/api/register",bodyData).subscribe((resultData: any)=>

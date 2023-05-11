@@ -4,14 +4,18 @@ const bodyparser=require('body-parser');
 const cookieParser=require('cookie-parser');
 const User=require('./models/user');
 const {auth} =require('./middlewares/auth');
+var cors = require('cors')
 const db=require('./config/config').get(process.env.NODE_ENV);
 
-
+var corsOptions = {
+    origin: '*',
+  }
 const app=express();
 // app use
 app.use(bodyparser.urlencoded({extended : false}));
 app.use(bodyparser.json());
 app.use(cookieParser());
+app.use(cors(corsOptions))
 
 // database connection
 mongoose.Promise=global.Promise;
@@ -103,7 +107,7 @@ app.get('/',function(req,res){
 });
 
 // listening port
-const PORT=process.env.PORT||3000;
+const PORT=process.env.PORT||8080;
 app.listen(PORT,()=>{
     console.log(`vukani app is running at ${PORT}`);
 });
