@@ -11,8 +11,8 @@
                 <h1 class="mb-8 text-3xl text-center">Sign up</h1>
                 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
     
-                    <div id="a-name" *ngIf="myForm.get('name').invalid && (myForm.get('name').dirty || myForm.get('name').touched)">
-                        Please provide a name.
+                    <div id="a-name" *ngIf="myForm.get('firstname').invalid && (myForm.get('firstname').dirty || myForm.get('firstname').touched)">
+                        Please provide your first name.
                       </div>
       
     
@@ -20,9 +20,26 @@
     
                 
                     type="text"
+                    [(ngModel)]="firstname"
+                    ngModelOptions="{standlone:true}"
                     class="block border border-grey-light w-full p-3 rounded mb-4"
                     formControlName="name"
-                    placeholder="Full Name" />
+                    placeholder="First Name" />
+
+                    <div id="a-name" *ngIf="myForm.get('lastname').invalid && (myForm.get('lastname').dirty || myForm.get('lastname').touched)">
+                        Please provide your last name.
+                      </div>
+      
+    
+                <input 
+    
+                
+                    type="text"
+                    [(ngModel)]="lastname"
+                    ngModelOptions="{standlone:true}"
+                    class="block border border-grey-light w-full p-3 rounded mb-4"
+                    formControlName="lastname"
+                    placeholder="Last Name" />
     
                     <div id="b-name" *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
                         Please provide a valid email address.
@@ -30,9 +47,10 @@
     
                 <input 
                 
-                    type="text"
+                    type="email"
+                    [(ngModel)]="email"
+                    ngModelOptions="{standlone:true}"
                     class="block border border-grey-light w-full p-3 rounded mb-4 "
-                    
                     formControlName="email"
                     placeholder="Email" />
     
@@ -42,6 +60,8 @@
     
                 <input 
                     type="password"
+                    [(ngModel)]="password"
+                    ngModelOptions="{standlone:true}"
                     class="block border border-grey-light w-full p-3 rounded mb-4"
                     formControlName="password"
                     placeholder="Password" />
@@ -51,13 +71,14 @@
     
     
                     type="password"
+                    [(ngModel)]="password2"
                     class="block border border-grey-light w-full p-3 rounded mb-4"
                     name="confirm_password"
                     placeholder="Confirm Password" />
     
                     
       
-                <button click="myFunction()"
+                <button (click)="save()"
                     id="btn-style"
                     type="submit" 
                     class="w-full text-center py-3 rounded bg-green bg-slate-600  text-white block border border-grey-light w-full p-3 rounded mb-4 hover:bg-green-dark focus:outline-none my-1  "
