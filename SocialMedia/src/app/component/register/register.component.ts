@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(private fb: FormBuilder, private http: HttpClient,private router : Router) {}
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -48,6 +49,7 @@ export class RegisterComponent implements OnInit {
     {
       console.log(resultData);
       alert("User Registered Successfuly");
+      this.router.navigateByUrl('/home');
     });
   }
   save()
