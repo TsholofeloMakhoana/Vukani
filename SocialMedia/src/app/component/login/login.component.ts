@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CommonService } from 'src/app/services/common.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,11 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class LoginComponent implements OnInit {
+
+  loginV:any = FormGroup;
+  private formSubmitAttempt!: boolean;
+
+  LoginStatus$ = new BehaviorSubject<boolean>(false);
 
   email: string = "";
   password: string = "";
@@ -23,6 +30,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,  
     private router: Router,
+    private authService: CommonService,
     private http : HttpClient
   ) { }
 
@@ -55,15 +63,9 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
-    this.submitted = true;
-    if (this.loginForm.valid) {
-
-      //Business logic to Authorize user to the system
-      //Get the email and password values from the frontend
-      //Check if password and email exist 
-      //If Exist then route to Home Page
-      //else if not the Incorrect credentials dont route to any page
-      this.router.navigate(['/home']);
+    if (this.loginV.valid) {
+      this.authService.login(this.loginV.value);
     }
+    this.formSubmitAttempt = true;
   }
 }

@@ -6,7 +6,7 @@
         <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
             <h1 class="mb-8 text-3xl text-center">Login</h1>
 
-            <form class="form" [formGroup]="loginForm">
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                        
             <input 
                 type="email"

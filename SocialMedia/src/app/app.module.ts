@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './services/auth.guard';
+import { CommonService } from './services/common.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +16,6 @@ import { HomeComponent } from './component/home/home.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { FormGroup,  FormBuilder,  Validators, ReactiveFormsModule } from '@angular/forms';
 import { AddPostComponent } from './component/add-post/add-post.component';
-
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { AddPostComponent } from './component/add-post/add-post.component';
     FormsModule
   ],
   
-  providers: [],
+  providers: [AuthGuard,CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
