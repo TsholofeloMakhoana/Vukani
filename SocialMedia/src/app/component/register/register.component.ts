@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
-      password2: ['', [Validators.required, Validators.minLength(5)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      password2: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -34,7 +34,14 @@ export class RegisterComponent implements OnInit {
     console.log('Valid?', form.valid); // true or false
     console.log('Name', form.value.name);
     console.log('Email', form.value.email);
-    console.log('Message', form.value.message);
+    console.log('Password', form.value.password);
+    console.log('Confirm Password', form.value.confirm_password);
+
+    if (form.value.password !== form.value.confirm_password) {
+      alert('Passwords not matching');
+    } else {
+      alert('Logged In')
+    }
   }
 
   register(){
