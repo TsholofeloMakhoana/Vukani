@@ -1,41 +1,47 @@
+<div class="header-cl" id="">
+    <img class="h-8 w-8 roundede-full" src="https://freepngimg.com/save/130291-letter-v-png-download-free/512x512" alt="">UKANI
+    </div>
 <div class="bg-slate-600 min-h-screen flex flex-col">
     <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
         <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-            <h1 class="mb-8 text-3xl text-center">Welcome Back</h1>
+            <h1 class="mb-8 text-3xl text-center">Login</h1>
 
-  
+            <form class="form" [formGroup]="loginForm">
+                       
             <input 
-                type="text"
+                type="email"
+                formControlName="email"
                 class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email"
                 placeholder="Email" />
-  
-            <input 
+                          
+                <input 
                 type="password"
+                formControlName="password"
                 class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="password"
                 placeholder="Password" />
-            
-  
+          
             <button
+                (click)="login()"
+                id="btn-style"
                 type="submit"
-                class="w-full text-center py-3 rounded bg-green bg-slate-600  text-white block border border-grey-light w-full p-3 rounded mb-4 hover:bg-green-dark focus:outline-none my-1"
+                class="w-full text-center py-3 rounded bg-green bg-slate-600  text-white block border border-grey-light p-3 mb-4 hover:bg-green-dark focus:outline-none my-1"
             >Login</button>
   
             <div class="text-center text-sm text-grey-dark mt-4">
                 Forgot 
-                <a class="no-underline border-b border-grey-dark text-grey-dark text-blue-500" href="#">
+                <a class="no-underline border-b border-grey-dark text-grey-dark text-blue-500" routerLink="/forgot-password">
                     Password?
-
                 </a>
             </div>
+            </form>
+
         </div>
   
         <div class="text-grey-dark mt-6 text-white"  >
-            Do not have an accountt? 
-            <a class="no-underline border-b border-blue text-red-600" t  href="../register/">
+            Do not have an account? 
+          <a class="no-underline border-b border-blue text-red-600" routerLink="/register"> 
                 Register
-            </a>.
+            </a>
         </div>
     </div>
   </div>
