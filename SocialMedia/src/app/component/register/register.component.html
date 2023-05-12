@@ -67,7 +67,7 @@
                     placeholder="Password" />
                     
                     <div id="c-name"
-                    *ngIf="myForm.get('confirm_password').invalid && (myForm.get('confirm_password').dirty || myForm.get('confirm_password').touched)">
+                    *ngIf="myForm.get('password2').invalid && (myForm.get('password2').dirty || myForm.get('password2').touched)">
                     Password does not match.
                 </div>
                     
@@ -105,7 +105,7 @@
                 Already have an account? 
                 <a class="no-underline border-b border-blue text-red-600" routerLink="/login">
                     Log in
-                </a>.
+                </a>
             </div>
         </div>
       </div>

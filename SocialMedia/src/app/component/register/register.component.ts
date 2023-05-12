@@ -35,9 +35,9 @@ export class RegisterComponent implements OnInit {
     console.log('Name', form.value.name);
     console.log('Email', form.value.email);
     console.log('Password', form.value.password);
-    console.log('Confirm Password', form.value.confirm_password);
+    console.log('Confirm Password', form.value.password2);
 
-    if (form.value.password !== form.value.confirm_password) {
+    if (form.value.password !== form.value.password2) {
       alert('Passwords not matching');
     } else {
       alert('Logged In')
@@ -55,8 +55,8 @@ export class RegisterComponent implements OnInit {
     this.http.post("http://localhost:8080/api/register",bodyData).subscribe((resultData: any)=>
     {
       console.log(resultData);
-      alert("User Registered Successfuly");
-      this.router.navigateByUrl('/home');
+      alert("User Registered Successfuly, you can now login");
+      this.router.navigateByUrl('/login');
     });
   }
   save()

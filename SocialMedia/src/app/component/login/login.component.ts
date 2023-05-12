@@ -26,34 +26,6 @@ export class LoginComponent implements OnInit {
     private http : HttpClient
   ) { }
 
-  login()
-  {
-    console.log(this.email);
-    console.log(this.password);
-
-    let bodyData = {
-      "email" : this.email,
-      "password" : this.password
-    };
-    this.http.post("http://localhost:8080/api/login",bodyData).subscribe((resultData: any)=>
-    {
-
-      console.log(resultData);
-
-      if(resultData.status){
-
-        this.router.navigateByUrl('/home');
-
-      }else{
-
-        alert("Incorrect email or password");
-        console.log("Err login");
-
-      }
-      
-    });
-  }
-
   ngOnInit() {
     this.loginForm = this.fb.group({   
       email: ['', [Validators.required, Validators.email]],
@@ -61,6 +33,27 @@ export class LoginComponent implements OnInit {
     });
   }
  
+
+  login(){
+  
+
+    console.log(this.loginForm.value);
+    this.http.post("http://localhost:8080/api/login",this.loginForm.value).subscribe((resultData: any)=>
+    {
+
+      console.log(resultData);
+
+      let result = resultData.email.indexOf("@");
+
+      console.log(result )
+
+      localStorage.setItem("username",resultData.email.substr(0, result));
+      this.router.navigate(['/home']);
+
+    });
+  }
+
+
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.valid) {
