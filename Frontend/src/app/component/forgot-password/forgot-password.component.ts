@@ -32,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
       //Get the value of an email >> check it aganst you mongoDB user table to see if it exist
       //If exist then get the password and send an email >> Do Successful alert
       //else if not exist then "Please contact system admin" alert
-      alert(' forget Dumela Form Submitted succesfully');
+      alert(' Form Submitted succesfully');
     
     }
   }

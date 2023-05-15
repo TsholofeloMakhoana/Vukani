@@ -15,6 +15,9 @@
                 formControlName="email"
                 class="block border border-grey-light w-full p-3 rounded mb-4"
                 placeholder="Email" />
+                <div class="value">
+                    <h1>{{value}}</h1>
+                </div>
                           
                 <div id="c-name" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
                     Please provide a password of atleast 8 characters.

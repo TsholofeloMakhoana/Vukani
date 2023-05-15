@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   email: string = "";
   password: string = "";
+  value: string = "";
 
   isLogin: boolean = true;
   errMessage: string = "";
