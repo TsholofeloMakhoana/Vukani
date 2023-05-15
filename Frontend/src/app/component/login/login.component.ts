@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   email: string = "";
   password: string = "";
+  value: string = "";
 
   isLogin: boolean = true;
   errMessage: string = "";
@@ -63,6 +64,7 @@ export class LoginComponent implements OnInit {
       //Check if password and email exist 
       //If Exist then route to Home Page
       //else if not the Incorrect credentials dont route to any page
+      alert(' Form Submitted succesfully');
       this.router.navigate(['/home']);
     }
   }
