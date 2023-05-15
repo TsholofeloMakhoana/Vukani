@@ -50,22 +50,18 @@ export class LoginComponent implements OnInit {
     {
 
       console.log(resultData);
-
+  
       let result = resultData.email.indexOf("@");
 
       console.log(result )
 
       localStorage.setItem("username",resultData.email.substr(0, result));
-      this.router.navigate(['/home']);
+
+      if (this.loginForm.valid) {
+        this.authService.login(this.loginForm.value);
+      }
+      this.formSubmitAttempt = true;
 
     });
-  }
-
-
-  onSubmit() {
-    if (this.loginV.valid) {
-      this.authService.login(this.loginV.value);
-    }
-    this.formSubmitAttempt = true;
   }
 }

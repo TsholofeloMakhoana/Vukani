@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './services/auth.guard';
 import { CommonService } from './services/common.service';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +37,14 @@ import { AddPostComponent } from './component/add-post/add-post.component';
     ReactiveFormsModule,
     NgxDropzoneModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: 'home',
+        component: HomeComponent,
+        canActivate: [AuthGuard]
+      }
+    ])
   ],
   
   providers: [AuthGuard,CommonService],
