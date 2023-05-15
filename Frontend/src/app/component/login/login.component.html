@@ -7,7 +7,9 @@
             <h1 class="mb-8 text-3xl text-center">Login</h1>
 
             <form class="form" [formGroup]="loginForm">
-                       
+                <div id="b-name" *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                    Please provide a valid email address.
+                  </div>
             <input 
                 type="email"
                 formControlName="email"
@@ -17,7 +19,10 @@
                     <h1>{{value}}</h1>
                 </div>
                           
-                <input 
+                <div id="c-name" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                    Please provide a password of atleast 8 characters.
+                  </div> 
+            <input 
                 type="password"
                 formControlName="password"
                 class="block border border-grey-light w-full p-3 rounded mb-4"

@@ -1,18 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router){}
+  isLoggedIn$!: Observable<boolean>;
+
+  constructor(private authService: CommonService){}
+
+  ngOnInit(): void {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+  }
 
   username = localStorage.getItem("username");
+
   logout(){
     localStorage.setItem("username","");
-    this.router.navigate(['/home']);
+    this.authService.logout();
   }
 }
