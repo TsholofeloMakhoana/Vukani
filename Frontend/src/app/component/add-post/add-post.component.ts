@@ -9,6 +9,7 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class AddPostComponent {
   files: File[] = [];
+  caption: string = "";
 
   constructor(private _uploadService: UploadService){
   }
@@ -36,14 +37,13 @@ export class AddPostComponent {
     data.append('cloud_name','dx7c7wkhu');
 
     this._uploadService.uploadImage(data).subscribe((response) => {
-    
         console.log(response);
 
-//         let data = {
-// name:"dsf",
-// image:response.url
-//         }
-//  this._uploadService.uploadImage(data).subscribe((response) => {}     
+        let postData = {
+          "caption": this.caption,
+          "image" : response.url
+        };
+        this._uploadService.uploadImage(postData).subscribe((response) => {} )
     });
   }
 }
