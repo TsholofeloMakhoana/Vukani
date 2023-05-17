@@ -1,0 +1,1 @@
+export let USER_API: string = 'http://localhost:8080/';
