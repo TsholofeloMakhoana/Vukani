@@ -9,18 +9,17 @@ const postsSchema=mongoose.Schema({
         type: String
     },
     postedBy: {
-      type:  String
-       // type: mongoose.Schema.Types.ObjectId,
-        // required: true,
-        // trim: true,
-        // ref:'User' 
+    //    type: mongoose.Schema.Types.ObjectId,
+        type: String,
+        required: true,
+        trim: true,
+        ref:'User' 
     },
-    comments:[{
-        body:"string",
+    comments: [{
+        type: String,
+        body: "string",
         by:mongoose.Schema.Types.ObjectId
     }],
-    date: Date,
-
    
 },
     {timestamps:true},

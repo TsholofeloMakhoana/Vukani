@@ -3,7 +3,7 @@ const mongoose= require('mongoose');
 const bodyparser=require('body-parser');
 const cookieParser=require('cookie-parser');
 const User = require('./models/user');
-const Post=require('./models/posts');
+const Posts=require('./models/posts');
 const {auth} =require('./middlewares/auth');
 var cors = require('cors')
 const db=require('./config/config').get(process.env.NODE_ENV);
@@ -17,12 +17,13 @@ app.use(bodyparser.urlencoded({extended : false}));
 app.use(bodyparser.json());
 app.use(cookieParser());
 app.use(cors(corsOptions))
-//app.use('/posts', require('./routes/postRoutes'))
+
 
 
 // database connection
+mongoose.set("strictQuery", false);
 mongoose.Promise = global.Promise;
-console.log(mongoose.Promise, " promise here");
+console.log(mongoose.Promise);
 mongoose.connect(db.DATABASE,{ useNewUrlParser: true,useUnifiedTopology:true },function(err){
     if (err) {
         console.log(err,"found error here");
@@ -53,23 +54,6 @@ app.post('/api/register',function(req,res){
            });
        });
    });
-});
-
-
-// adding new post
-app.post('/api/post',function(req,res){
-   // taking a post
-   const newpost=new Post(req.body);
-   console.log(newpost,"post added");
- newpost.save((err,doc)=>{
-           if(err) {console.log(err);
-               return res.status(400).json({ success : false});}
-           res.status(200).json({
-               succes:true,
-               post : doc
-           });
-       });
-   
 });
 
 
@@ -113,7 +97,21 @@ app.post('/api/login', function(req,res){
 
     }); 
     
- 
+ // adding new post
+app.post('/api/posts',function(req,res){
+   // taking a post
+   const newpost=new Posts(req.body);
+   console.log(newpost,"post added");
+ newpost.save((err,doc)=>{
+           if(err) {console.log(err);
+               return res.status(400).json({ success : false});}
+           res.status(200).json({
+               succes:true,
+               post : doc
+           });
+       });
+   
+});
 
 // get logged in user
 app.get('/api/profile',auth,function(req,res){
@@ -128,14 +126,66 @@ app.get('/api/profile',auth,function(req,res){
 
 
 // get all posts
-app.get('/api/postNow', auth, function (req, res) {
-   
-        res.json({
-          //  isAuth: true,
-         // object:res
+app.get('/api/posts', async (req, res) => {
+    
+    try {
+        const posts = await Posts.find({});
+        res.status(200).json(posts);
+        console.log("Posts found");
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
-        })
-     console.log(res,"respo");
+//get single post
+app.get('/api/posts/:id', async (req, res) => {
+    
+    try {
+        const { id } = req.params;
+        const post = await Posts.findById(id);
+        if (!post)
+        {
+            return res.status(404).json({ message: `Can't find ${id}` });
+        }
+        res.status(200).json(post);
+        console.log("Post found");
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+//update post
+app.put('/api/posts/:id', async (req, res) => {
+    
+    try {
+        const { id } = req.params;
+        const post = await Posts.findByIdAndUpdate(id, req.body);
+        if (!post)
+        {
+            return res.status(404).json({ message: `Can't find ${id}` });
+        }
+        const updatedPost = await Posts.findById(id);
+        res.status(200).json(updatedPost);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+//delete post
+app.delete('/api/posts/:id', async (req, res) => {
+    
+    try {
+        const { id } = req.params;
+        const post = await Posts.findByIdAndDelete(id);
+        if (!post)
+        {
+            return res.status(404).json({ message: `Can't find ${id}` });
+        }
+        res.status(200).json(post);
+        console.log("successfuly deleted");
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 });
 
 app.get('/',function(req,res){
