@@ -1,56 +1,406 @@
 <app-header></app-header>
-<div class="py-16 bg-gradient-to-br from-green-50 green-100 text-green-600">  
-    <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
-        <div class="mb-12 space-y-2 text-center">
-          <h2 class="text-2xl text-cyan-900 font-bold md:text-4xl">Vukani</h2>
-          <p class="lg:w-6/12 lg:mx-auto">Share your thoughts and view what others have posted</p>
-        </div>
-  
-        <div class="grid gap-12 lg:grid-cols-2">
-          <div class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-            <img src="https://tailus.io/sources/blocks/twocards/preview/images/woman.jpg" alt="art cover" loading="lazy" width="100" height="66" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
-            <div class="sm:w-7/12 pl-0 p-5">
-              <div class="space-y-2">
-                <div class="space-y-4">
-                  <h4 class="text-2xl font-semibold text-cyan-900">Question???</h4>
-                  <p class="text-gray-600">Does anyone have an idea of what libriaries are and how do they work?
-                    Please leave a comment below
-                  </p>
-                </div>
-                <!-- <a href="www.tailus.io" class="block w-max text-cyan-600">Read more</a> -->
-                <!-- <a href="#" class="text-red-300 hover:bg-red-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"> <strong>Comment</strong> </a>    <img src="https://i.pinimg.com/564x/19/38/86/1938862d9e9d36df574e85349be97dc9.jpg" alt="art cover" loading="lazy" width="100" height="66" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"> -->
-              </div>
-            </div>
-          </div>
-          <div class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-            <img src="https://tailus.io/sources/blocks/twocards/preview/images/man.jpg" alt="art cover" loading="lazy" width="100" height="66" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
-            <div class="sm:w-7/12 pl-0 p-5">
-              <div class="space-y-2">
-                <div class="space-y-4">
-                  <h4 class="text-2xl font-semibold text-cyan-900">Word of Advice!</h4> 
-                  <p class="text-gray-600">With a great software developer resume, you may get your pick of jobs in this high-growth career in information technology .</p>
-                </div>
-                <!-- <a href="www.tailus.io" class="block w-max text-cyan-600">Read more</a> -->
-                <!-- <a href="#" class="text-red-300 hover:bg-red-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"> <strong>Comment</strong> </a>    <img src="https://i.pinimg.com/564x/19/38/86/1938862d9e9d36df574e85349be97dc9.jpg" alt="art cover" loading="lazy" width="100" height="66" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"> -->
-              </div>
-            </div>
-          </div>
-          <div class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-            <img src="https://i.pinimg.com/564x/b5/d4/b8/b5d4b80af2a36a1bf38854fe6f63ef31.jpg" alt="art cover" loading="lazy" width="100" height="16" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
-            <div class="sm:w-7/12 pl-0 p-5">
-              <div class="space-y-2">
-                <div class="space-y-4">
-                  <h4 class="text-2xl font-semibold text-cyan-900">Job Seeker?</h4>
 
-                  <p class="text-gray-600">I’m Avanthika Koduru from Bangalore. I have more than 5 years of experience in building software applications.My ability to analyze business needs and complicated technical information has brought me here. I am driven by curiosity and proficient in Java, Spring, jQuery, and JS framework.
-                    
-                    </p>
-                </div>
-                <!-- <a href="www.tailus.io" class="block w-max text-cyan-600">Read more</a> -->
-                <!-- <a href="#" class="text-red-300 hover:bg-red-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"> <strong>Comment</strong> </a>    <img src="https://i.pinimg.com/564x/19/38/86/1938862d9e9d36df574e85349be97dc9.jpg" alt="art cover" loading="lazy" width="100" height="66" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"> -->
+
+
+<div class="modal fade" id="modalview">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title h4">Following</div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+          <a href="#" class="text-decoration-none">
+            <li class="media hover-media">
+              <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+              <div class="media-body text-dark">
+                <h6 class="media-header"><strong> Authur Zwane</strong>
+                </h6>
+                <p class="media-text">Arthur Jabulani Zwane better known as "10111" is a South African professional football coach...</p>
+              </div>
+            </li>
+          </a>
+          <hr class="my-3">
+          <a href="#" class="text-decoration-none">
+            <li class="media hover-media">
+              <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+              <div class="media-body text-dark">
+                <h6 class="media-header"> <strong> Tsentle Makhoana</strong>
+                </h6>
+                <p class="media-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+            </li>
+          </a>
+          <hr class="my-3">
+          <a href="#" class="text-decoration-none">
+            <li class="media hover-media">
+              <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+              <div class="media-body text-dark">
+                <h6 class="media-header"><strong> Tsholofelo Makhoana</strong>
+                </h6>
+                <p class="media-text">Software Developer at The Digital Academy</p>
+              </div>
+            </li>
+          </a>
+          <hr class="my-3">
+          <a href="#" class="text-decoration-none">
+            <li class="media hover-media">
+              <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+              <div class="media-body text-dark">
+                <h6 class="media-header"><strong> Teko Modise </strong>
+                </h6>
+                <p class="media-text">Teko Tsholofelo Modise, nicknamed The General and Techno M, is a South African retired professional footballer,</p>
+              </div>
+            </li>
+          </a>
+          <hr class="my-3">
+          <a href="#" class="text-decoration-none">
+            <li class="media hover-media">
+              <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+              <div class="media-body text-dark">
+                <h6 class="media-header"><strong> MacG Mukwevho</strong>
+                </h6>
+                <p class="media-text">Ehhhh Daaaa Macgyver Mukwevho real name: Macgyver 'macg' Mukwevho; Stage Name: MacG; Occupation</p>
+              </div>
+            </li>
+          </a>
+          <hr class="my-3">
+          <a href="#" class="text-decoration-none">
+            <li class="media hover-media">
+              <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+              <div class="media-body text-dark">
+                <h6 class="media-header"><strong> Jacob Zuma</strong>
+                </h6>
+                <p class="media-text">Jacob Gedleyihlekisa Zuma is a South African politician who served as the fourth president of South Africa from 2009 to 2018</p>
+              </div>
+            </li>
+          </a>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------------------------MOdal Ends---------------------------->
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <!--------------------------left columns  start-->
+    <div class="col-12 col-lg-3">
+      <div class="left-column">
+        <div class="card card-left1 mb-4">
+          <img src="../../../assets//images/vukaniT.jpg" alt="" class="card-img-top img-fluid">
+          <div class="card-body text-center ">
+            <img src="../../../assets/images/user1.png" alt="img" width="120px" height="120px" class="rounded-circle mt-n5">
+            <h5 class="card-title">Dave Gamache</h5>
+            <p class="card-text text-justify mb-2">I wish i was a little bit taller, wish i was a baller, wish i had a girl… also.</p>
+            <ul class="list-unstyled nav justify-content-center">
+              <a href="#" class="text-dark text-decoration-none">
+                <li class="nav-item">Friends <br>
+                  <strong>12M</strong>
+                </li>
+              </a>
+              <a href="#" class="text-dark text-decoration-none">
+                <li class="nav-item">Enimes <br>
+                  <strong>1</strong>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div class="card shadow-sm card-left2 mb-4">
+          <div class="card-body">
+            <h5 class="mb-3 card-title">About <small>
+                <a href="#" class="ml-1">Edit</a>
+              </small>
+            </h5>
+            <p class="card-text">
+              <i class="fas fa-calendar-week mr-2"></i> Went to <a href="#" class="text-decoration-none">University of Kasi</a>
+            </p><br>
+            <p class="card-text">
+              <i class="fas fa-user-friends mr-2"></i> Become a friend with <a href="#" class="text-decoration-none">Thabo</a>
+            </p><br>
+            <p class="card-text">
+              <i class="far fa-building mr-2"></i> Work at <a href="#" class="text-decoration-none">The Digital Acc</a>
+            </p><br>
+            <p class="card-text">
+              <i class="fas fa-home mr-2"></i> Live in <a href="#" class="text-decoration-none">Johannesburg</a>
+            </p><br>
+            <p class="card-text">
+              <i class="fas fa-map-marker mr-2"></i> From <a href="#" class="text-decoration-none">Gauteng, South Africa</a>
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-sm card-left3 mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Photos <small class="ml-2">          
+              </small>
+            </h5>
+            <div class="row">
+              <div class="col-6 p-1">
+                <a href="../../../assets/images/absa.jpg" data-lightbox="id">
+                  <img src="../../../assets/images/absa.jpg" alt="img" class="img-fluid my-2">
+                </a>
+                <a href="../../../assets/images/mtn.jpg" data-lightbox="id">
+                  <img src="../../../assets/images/mtn.jpg" alt="img" class="img-fluid my-2">
+                </a>             
+              </div>
+              <div class="col-6 p-1">
+                <a href="../../../assets/images/voda.jpg" data-lightbox="id">
+                  <img src="../../../assets/images/voda.jpg" alt="img" class="img-fluid my-2">
+                </a>
+                <a href="../../../assets/images/DA.jpg" data-lightbox="id">
+                  <img src="../../../assets/images/DA.jpg" alt="img" class="img-fluid my-2">
+                </a>
+            
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="middle-column">
+        <div class="card">
+          <div class="card-header bg-transparent">
+            <form class="form-inline">
+              <div class="input-group w-100">
+                <input type="text" name="message" id="message" placeholder="Message" class="form-control form-control-md">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-body">
+            <div class="media">
+              <img src="../../../assets/images/user1.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+              <div class="media-body">
+                <h5>Dave Gamache</h5>
+                <p class="card-text text-justify">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <div class="row no-gutters mb-3">
+                  <div class="col-6 p-1 text-center">
+                    <img src="img/adventure-alps-clouds-2259810.jpg" alt="" class="img-fluid mb-2">
+                    <img src="img/aerial-view-architectural-design-buildings-2228123.jpg" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-6 p-1 text-center">
+                    <img src="img/celebration-colored-smoke-dark-2297472.jpg" alt="" class="img-fluid mb-2">
+                    <img src="img/bodybuilding-exercise-fitness-2294361.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+                <div class="media mb-3">
+                  <img src="../../../assets/images/user1.png" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+                  <div class="media-body">
+                    <p class="card-text text-justify">Jacon Thornton: Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.</p>
+                  </div>
+                </div>
+                <div class="media">
+                  <img src="../../../assets/images/user1.png" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+                  <div class="media-body">
+                    <p class="card-text text-justify">Mark Otto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                  </div>
+                </div>
+              </div>
+              <small>5min</small>
+            </div>
+          </div>
+          <hr>
+          <div class="card-body">
+            <div class="media">
+              <img src="../../../assets/images/user1.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+              <div class="media-body">
+                <h5>Jacob Thornton</h5>
+                <p class="text-justify">Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+              <small>14 min</small>
+            </div>
+          </div>
+          <hr>
+          <div class="card-body">
+            <div class="media">
+              <img src="../../../assets/images/user1.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+              <div class="media-body">
+                <h5>Mark Otto</h5>
+                <p class="text-justify">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                <a href="../../../assets/images/user1.png" data-lightbox="id">
+                  <img src="../../../assets/images/user1.png" alt="" class="img-fluid shadow-sm img-thumbnail">
+                </a>
+              </div>
+              <small class="text-muted">10 min</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!------------------------Middle column Ends---------------->
+    <!---------------------------Statrs Right Columns----------------->
+    <div class="col-12 col-lg-3">
+      <div class="right-column">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h6 class="card-title">Sponsored</h6>
+            <img src="../../../assets/images/DA.jpg" alt="card-img" class="card-img mb-3">
+            <p class="card-text text-justify">
+              <span class="h6">The Digital Academy </span>  recruits motivated young people with a raw talent for Software Development. They learn practical, hands-on development skills that are needed in the real world. 
+            </p>
+            <a href="https://www.thedigitalacademy.co.za/" target="_blank" class="btn btn-outline-info card-link btn-sm">View More</a>
+          </div>
+        </div>
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h6 class="card-title "><a href="#suggestedView" data-toggle="modal" class="ml-1">
+                <small> People you may know (TOP 2) </small>
+              </a>
+            </h6>
+            <div class="row no-gutters d-none d-lg-flex">
+              <div class="col-6 p-1">
+                <img src="../../../assets/images/user1.png" alt="img" width="70px" height="60px" class="rounded-circle mb-4">
+                <img src="../../../assets/images/user1.png" alt="img" width="70px" height="60px" class="rounded-circle">
+             
+              </div>
+              <div class="col-6 p-1 text-left">
+                <h6>Monnapule Saleng</h6>
+                <a href="#" class="btn btn-outline-info btn-sm mb-3">
+                  <i class="fas fa-user-friends"></i>Follow </a>
+                <h6>Siphiwe Shabalala</h6>
+                <a href="#" class="btn btn-outline-info  btn-sm">
+                  <i class="fas fa-user-friends"></i>Follow </a>
+     
+       
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p class="lead" style="font-size:18px;">Dave really likes these nerds, no one knows why though.</p>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <p>&copy; 2023 Vukani <a href="#">About</a> | 
+              <a href="#">Help</a> | 
+              <a href="#">Terms</a> | 
+              <a href="#">Privacy</a> | 
+              <a href="#">Cookies</a> | 
+              <a href="#">Ads </a> | 
+              <a href="#">Info</a> | 
+              <a href="#">Jobs</a> |
+              <a href="#">Advertise</a> |
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!------------------------Light BOx OPtions------------->
+  <script>
+    lightbox.option({})
+  </script>
+  <!------------------------Light BOx OPtions------------->
+
+
+
+
+
+
+
+  <div class="modal fade" id="suggestedView">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title h4">Suggested - People you may know</div>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-unstyled">
+            <a href="#" class="text-decoration-none">
+              <li class="media hover-media">
+                <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+                <div class="media-body text-dark">
+                  <h6 class="media-header"><strong> Thabo Baster </strong>                     
+                  </h6>    
+                  <a href="#" class="btn btn-outline-info  btn-sm">
+                    <i class="fas fa-user-friends"></i>Follow </a>           
+                </div>
+              </li>
+            </a>
+            <hr class="my-3">
+            <a href="#" class="text-decoration-none">
+              <li class="media hover-media">
+                <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+                <div class="media-body text-dark">
+                  <h6 class="media-header"> <strong> Maki Motholo</strong>
+                  </h6>
+                  <a href="#" class="btn btn-outline-info  btn-sm">
+                    <i class="fas fa-user-friends"></i>Follow </a>
+                </div>
+              </li>
+            </a>
+            <hr class="my-3">
+            <a href="#" class="text-decoration-none">
+              <li class="media hover-media">
+                <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+                <div class="media-body text-dark">
+                  <h6 class="media-header"><strong> Fikile Mbalula</strong>
+                  </h6>
+                  <a href="#" class="btn btn-outline-info  btn-sm">
+                    <i class="fas fa-user-friends"></i>Follow </a>
+                </div>
+              </li>
+            </a>
+            <hr class="my-3">
+            <a href="#" class="text-decoration-none">
+              <li class="media hover-media">
+                <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+                <div class="media-body text-dark">
+                  <h6 class="media-header"><strong> Peter Shalulile </strong>
+                  </h6>
+                  <a href="#" class="btn btn-outline-info  btn-sm">
+                    <i class="fas fa-user-friends"></i>Follow </a>
+                </div>
+              </li>
+            </a>
+            <hr class="my-3">
+            <a href="#" class="text-decoration-none">
+              <li class="media hover-media">
+                <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+                <div class="media-body text-dark">
+                  <h6 class="media-header"><strong> MacG Mukwevho</strong>
+                  </h6>
+                  <a href="#" class="btn btn-outline-info  btn-sm">
+                    <i class="fas fa-user-friends"></i>Follow </a>
+                </div>
+              </li>
+            </a>
+            <hr class="my-3">
+            <a href="#" class="text-decoration-none">
+              <li class="media hover-media">
+                <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+                <div class="media-body text-dark">
+                  <h6 class="media-header"><strong> Hercules Hercs</strong>
+                  </h6>
+                  <a href="#" class="btn btn-outline-info  btn-sm">
+                    <i class="fas fa-user-friends"></i>Follow </a>
+                </div>
+              </li>
+            </a>
+           
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
