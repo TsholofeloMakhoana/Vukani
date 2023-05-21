@@ -2,7 +2,8 @@ const express=require('express');
 const mongoose= require('mongoose');
 const bodyparser=require('body-parser');
 const cookieParser=require('cookie-parser');
-const User=require('./models/user');
+const User = require('./models/user');
+const Post=require('./models/posts');
 const {auth} =require('./middlewares/auth');
 var cors = require('cors')
 const db=require('./config/config').get(process.env.NODE_ENV);
@@ -16,12 +17,19 @@ app.use(bodyparser.urlencoded({extended : false}));
 app.use(bodyparser.json());
 app.use(cookieParser());
 app.use(cors(corsOptions))
+//app.use('/posts', require('./routes/postRoutes'))
+
 
 // database connection
-mongoose.Promise=global.Promise;
+mongoose.Promise = global.Promise;
+console.log(mongoose.Promise, " promise here");
 mongoose.connect(db.DATABASE,{ useNewUrlParser: true,useUnifiedTopology:true },function(err){
-    if(err) console.log(err);
-    console.log("database is connected");
+    if (err) {
+        console.log(err,"found error here");
+    } else {
+           console.log("database is connected");
+    } 
+ 
 });
 
 
@@ -48,11 +56,28 @@ app.post('/api/register',function(req,res){
 });
 
 
+// adding new post
+app.post('/api/post',function(req,res){
+   // taking a post
+   const newpost=new Post(req.body);
+   console.log(newpost,"post added");
+ newpost.save((err,doc)=>{
+           if(err) {console.log(err);
+               return res.status(400).json({ success : false});}
+           res.status(200).json({
+               succes:true,
+               post : doc
+           });
+       });
+   
+});
+
+
 // login user
 app.post('/api/login', function(req,res){
     let token=req.cookies.auth;
     User.findByToken(token,(err,user)=>{
-        if(err) return  res(err);
+      //  if(err) return  res(err);
         if(user) return res.status(400).json({
             error :true,
             message:"You are already logged in"
@@ -101,6 +126,17 @@ app.get('/api/profile',auth,function(req,res){
         })
 });
 
+
+// get all posts
+app.get('/api/postNow', auth, function (req, res) {
+   
+        res.json({
+          //  isAuth: true,
+         // object:res
+
+        })
+     console.log(res,"respo");
+});
 
 app.get('/',function(req,res){
     res.status(200).send(`Welcome to login , sign-up api`);
