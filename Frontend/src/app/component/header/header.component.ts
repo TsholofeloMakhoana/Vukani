@@ -9,6 +9,9 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+search(arg0: string) {
+throw new Error('Method not implemented.');
+}
 
   isLoggedIn$!: Observable<boolean>;
 
