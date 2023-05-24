@@ -16,7 +16,9 @@ import { RegisterComponent } from './component/register/register.component';
 import { HomeComponent } from './component/home/home.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { FormGroup,  FormBuilder,  Validators, ReactiveFormsModule } from '@angular/forms';
-import { AddPostComponent } from './component/add-post/add-post.component';
+
+import { PostlistComponent } from './component/postlist/postlist.component';
+import { EditPostComponent } from './component/edit-post/edit-post.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { AddPostComponent } from './component/add-post/add-post.component';
     RegisterComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    AddPostComponent
+ 
+    PostlistComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { AddPostComponent } from './component/add-post/add-post.component';
     BrowserModule, 
     ReactiveFormsModule,
     NgxDropzoneModule,
+    FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot([
       {

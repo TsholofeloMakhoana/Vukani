@@ -1,0 +1,19 @@
+<div class="card-body" *ngFor="let post of Posts; let i = index">
+    <div class="media">
+      <img src="../../../assets/images/user1.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+      <div class="media-body" >
+        <h5>{{post.createdByName}}</h5>
+        <p class="card-text text-justify">{{post.comment}}</p>
+
+        <div class="media mb-3">
+
+           <a routerLink="/edit-post/{{post._id}}" class="text-decoration-none"> <i class="fas fa-edit mr-2"></i></a>
+           <a (click)="delete(post._id, i)" class="text-decoration-none"> <i class="fas fa-trash mr-2"></i></a>         
+            <!-- <button class="btn btn-sm btn-primary" routerLink="/edit-book/{{post._id}}">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(post._id, i)">Delete</button>  -->
+          </div>
+          <hr>
+      </div>
+      <small>{{post.createdOn}}</small>
+    </div>
+  </div>
