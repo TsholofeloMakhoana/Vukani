@@ -3,8 +3,9 @@ const mongoose= require('mongoose');
 const bodyparser=require('body-parser');
 const cookieParser=require('cookie-parser');
 const User=require('./models/user');
+
 const {auth} =require('./middlewares/auth');
-var cors = require('cors')
+var cors = require('cors');
 const db=require('./config/config').get(process.env.NODE_ENV);
 
 var corsOptions = {
@@ -25,6 +26,7 @@ mongoose.connect(db.DATABASE,{ useNewUrlParser: true,useUnifiedTopology:true },f
 });
 
 
+//#region  User Register and Login
 // adding new user (sign-up route)
 app.post('/api/register',function(req,res){
    // taking a user
@@ -46,7 +48,6 @@ app.post('/api/register',function(req,res){
        });
    });
 });
-
 
 // login user
 app.post('/api/login', function(req,res){
@@ -87,9 +88,6 @@ app.post('/api/login', function(req,res){
         });
 
     }); 
-    
- 
-
 // get logged in user
 app.get('/api/profile',auth,function(req,res){
         res.json({
@@ -100,6 +98,17 @@ app.get('/api/profile',auth,function(req,res){
             
         })
 });
+//#endregion
+
+
+
+
+//#region Create Post, Edit Post, Delete Post, Get List of Post
+const StatusRoute = require('./routes/status.routes')
+app.use('/api', StatusRoute)
+
+//#endregion
+
 
 
 app.get('/',function(req,res){
