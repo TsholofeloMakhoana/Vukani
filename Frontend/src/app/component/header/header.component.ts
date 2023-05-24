@@ -11,9 +11,11 @@ import { CommonService } from 'src/app/services/common.service';
 export class HeaderComponent implements OnInit {
 search(arg0: string) {
 throw new Error('Method not implemented.');
+
 }
 
   isLoggedIn$!: Observable<boolean>;
+  searchText:string = '';
 
   constructor(private authService: CommonService){}
 
@@ -26,5 +28,9 @@ throw new Error('Method not implemented.');
   logout(){
     localStorage.setItem("username","");
     this.authService.logout();
+  }
+  onSearchTextEntered(searchValue:string){ 
+   this.searchText = searchValue; 
+   console.log(this.searchText);
   }
 }

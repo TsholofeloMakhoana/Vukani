@@ -17,6 +17,7 @@ import { HomeComponent } from './component/home/home.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { FormGroup,  FormBuilder,  Validators, ReactiveFormsModule } from '@angular/forms';
 import { AddPostComponent } from './component/add-post/add-post.component';
+import { SearchComponentComponent } from './component/search-component/search-component.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AddPostComponent } from './component/add-post/add-post.component';
     RegisterComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    AddPostComponent
+    AddPostComponent,
+    SearchComponentComponent
   ],
   imports: [
     BrowserModule,
