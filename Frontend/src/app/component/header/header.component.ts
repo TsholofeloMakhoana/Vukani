@@ -9,8 +9,13 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+search(arg0: string) {
+throw new Error('Method not implemented.');
+
+}
 
   isLoggedIn$!: Observable<boolean>;
+  searchText:string = '';
 
   constructor(private authService: CommonService){}
 
@@ -23,5 +28,9 @@ export class HeaderComponent implements OnInit {
   logout(){
     localStorage.setItem("username","");
     this.authService.logout();
+  }
+  onSearchTextEntered(searchValue:string){ 
+   this.searchText = searchValue; 
+   console.log(this.searchText);
   }
 }

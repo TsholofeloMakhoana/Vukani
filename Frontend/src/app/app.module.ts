@@ -17,8 +17,13 @@ import { HomeComponent } from './component/home/home.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { FormGroup,  FormBuilder,  Validators, ReactiveFormsModule } from '@angular/forms';
 
+
 import { PostlistComponent } from './component/postlist/postlist.component';
 import { EditPostComponent } from './component/edit-post/edit-post.component';
+
+
+import { SearchComponentComponent } from './component/search-component/search-component.component';
+
 
 
 @NgModule({
@@ -30,9 +35,13 @@ import { EditPostComponent } from './component/edit-post/edit-post.component';
     RegisterComponent,
     HomeComponent,
     ForgotPasswordComponent,
+
  
     PostlistComponent,
     EditPostComponent
+,
+    SearchComponentComponent
+
   ],
   imports: [
     BrowserModule,
