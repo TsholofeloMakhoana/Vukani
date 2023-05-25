@@ -105,7 +105,7 @@ app.get('/api/profile',auth,function(req,res){
 
 //#region Create Post, Edit Post, Delete Post, Get List of Post
 const StatusRoute = require('./routes/status.routes')
-app.use('/api', StatusRoute)
+app.use('/api/post', StatusRoute)
 //#endregion
 
 //#region Users

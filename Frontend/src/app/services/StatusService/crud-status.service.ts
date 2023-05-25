@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   providedIn: 'root'
 })
 export class CrudStatusService {
-  REST_API: string = 'http://localhost:8080/api';
+  REST_API: string = 'http://localhost:8080/api/post';
 
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 

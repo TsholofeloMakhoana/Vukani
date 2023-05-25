@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Friend} from './Friend';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -8,7 +7,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   providedIn: 'root'
 })
 export class FriendService {
-  REST_API: string = 'http://localhost:8080/api';
+  REST_API: string = 'http://localhost:8080/api/';
 
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 

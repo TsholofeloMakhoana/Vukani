@@ -165,8 +165,8 @@
  
     <div class="col-12 col-lg-6">
       <div class="middle-column">
-        <div class="card" *ngFor="let friends of Friends; let i = index">
-            <h6>Tsholofelo Makhoana Test</h6>
+        <div class="card" *ngFor="let friends of User; let i = index">
+            <h6>{{friends.firstname +" "+friends.lastname }}</h6>
             <a href="#" class="btn btn-outline-info  btn-sm">
               <i class="fas fa-user-friends"></i>Follow </a>
         </div>

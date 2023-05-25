@@ -9,16 +9,16 @@ import { FriendService } from 'src/app/services/UsersService/friend.service';
 export class SearchlistComponent implements OnInit {
 
  
-  Friends:any = [];
+  User:any = [];
  
   constructor(private friendService: FriendService) { }
-  
+
   username = localStorage.getItem("username");
   
   ngOnInit(): void {
     this.friendService.GetFriends().subscribe(res => {
       console.log(res)
-      this.Friends =res;
+      this.User =res;
     });    
   }
 }
