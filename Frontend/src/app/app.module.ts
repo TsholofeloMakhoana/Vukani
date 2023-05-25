@@ -23,6 +23,7 @@ import { EditPostComponent } from './component/edit-post/edit-post.component';
 
 
 import { SearchComponentComponent } from './component/search-component/search-component.component';
+import { SearchlistComponent } from './component/searchlist/searchlist.component';
 
 
 
@@ -40,7 +41,8 @@ import { SearchComponentComponent } from './component/search-component/search-co
     PostlistComponent,
     EditPostComponent
 ,
-    SearchComponentComponent
+    SearchComponentComponent,
+    SearchlistComponent
 
   ],
   imports: [
