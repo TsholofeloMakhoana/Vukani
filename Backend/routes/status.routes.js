@@ -49,7 +49,7 @@ postRoute.route('/update-status/:id').put((req, res, next) => {
   })
 })
 
-postRoute.route('/delete-Status/:id').delete((req, res, next) => {
+postRoute.route('/delete-status/:id').delete((req, res, next) => {
     Status.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);

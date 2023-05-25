@@ -99,15 +99,20 @@ app.get('/api/profile',auth,function(req,res){
         })
 });
 //#endregion
-
+//#endregion
 
 
 
 //#region Create Post, Edit Post, Delete Post, Get List of Post
 const StatusRoute = require('./routes/status.routes')
 app.use('/api', StatusRoute)
-
 //#endregion
+
+//#region Users
+const UserRoute = require('./routes/user.route')
+app.use('/api', UserRoute)
+//#endregion
+
 
 
 

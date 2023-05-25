@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FriendService } from 'src/app/services/UsersService/friend.service';
 
 @Component({
   selector: 'app-searchlist',
   templateUrl: './searchlist.component.html',
   styleUrls: ['./searchlist.component.scss']
-})
-export class SearchlistComponent {
+})  
+export class SearchlistComponent implements OnInit {
+
+ 
+  Friends:any = [];
+ 
+  constructor(private friendService: FriendService) { }
+  
   username = localStorage.getItem("username");
+  
+  ngOnInit(): void {
+    this.friendService.GetFriends().subscribe(res => {
+      console.log(res)
+      this.Friends =res;
+    });    
+  }
 }
