@@ -24,6 +24,8 @@ import { EditPostComponent } from './component/edit-post/edit-post.component';
 
 import { SearchComponentComponent } from './component/search-component/search-component.component';
 import { SearchlistComponent } from './component/searchlist/searchlist.component';
+import { PostCardComponent } from './component/post-card/post-card.component';
+import { AddPostComponent } from './component/add-post/add-post.component';
 
 
 
@@ -42,7 +44,9 @@ import { SearchlistComponent } from './component/searchlist/searchlist.component
     EditPostComponent
 ,
     SearchComponentComponent,
-    SearchlistComponent
+    SearchlistComponent,
+    PostCardComponent,
+    AddPostComponent
 
   ],
   imports: [

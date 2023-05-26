@@ -15,7 +15,8 @@
 		</div>
 		<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
 		  <div class="flex flex-shrink-0 items-center">
-			<img class="h-8 w-8 rounded-full" src="https://images-ext-1.discordapp.net/external/EPkhkzmbqGMV2TdwbwWH3ZVsTFAtbxhNfEAnuD2KRvc/https/freepngimg.com/save/130291-letter-v-png-download-free/512x512?width=952&height=952" alt="" id="name"><a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">UKANI</a>
+			<img class="h-8 w-8 rounded-full" src="https://images-ext-1.discordapp.net/external/EPkhkzmbqGMV2TdwbwWH3ZVsTFAtbxhNfEAnuD2KRvc/https/freepngimg.com/save/130291-letter-v-png-download-free/512x512?width=952&height=952" alt="" id="name"><a routerLink="/home" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md py-2 text-sm font-medium">UKANI</a>
+			<a href="#" routerLink="/add-post" class="text-gray-300 hover:bg-gray-700 hover text-white block rounded-md px-3 py-2 text-base font-medium">Post</a>
 		  </div>
 		  <div class="hidden sm:ml-6 sm:block" *ngIf="searchText ===''|| searchText.includes(searchText)">
 			<div class="flex space-x-4">
@@ -23,7 +24,8 @@
 			  <!-- <input type="text" size="40px" formControlName="comment" id="message" placeholder="Message" class="form-control form-control-md" required>
 			  <button class="btn btn-sm btn-danger " type="submit">Search</button> -->
 
-				  <a href="#modalview" data-toggle="modal" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium nav-link">Following</a>
+				  <!-- <a href="#modalview" data-toggle="modal" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium nav-link">Following</a> -->
+				  
 				  <app-search-component (searchTextChanged)="onSearchTextEntered($event)" class="text hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium nav-link"></app-search-component>
 				  <button class="btn btn-sm btn-danger " routerLink="/searchlist">Search Users</button> 
 			</div>
@@ -41,7 +43,7 @@
 		  <div class="relative ml-3">
 			<div>
 			  <div class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-				<a class="hover:bg-gray-700 hover text-white block rounded-md px-3 py-2 text-base font-medium text-white">{{username}}</a>
+				<!-- <a class="hover:bg-gray-700 hover text-white block rounded-md px-3 py-2 text-base font-medium text-white">{{username}}</a> -->
                 <a (click)="logout()"
 					*ngIf="isLoggedIn" 
 					id="logoutButton" 

@@ -1,0 +1,18 @@
+<div class="card mb-3 wrapper" *ngFor="let p of posts1">
+    <!-- <div><small>{{post.createdOn}}</small></div> -->
+    <div>
+        <span><h1>{{ p?.title }}</h1></span>
+    </div>
+    <div>
+        <!-- <span>Created on:
+            {{
+                p?.createdOn.getDate()
+            }}
+        </span> -->
+    </div>
+    <img src="{{ p?.imageUrl }}"  class="card-img-top" alt="...">
+    <div class="card-body">
+        <h3>{{ p?.description}}</h3>
+    </div>
+  </div>
+  

@@ -167,17 +167,18 @@
       <div class="middle-column">
         <div class="card">
           <div class="card-header bg-transparent">
-            <form class="form-inline" [formGroup]="statusForm" (ngSubmit)="onSubmit()">
+            <!-- <form class="form-inline" [formGroup]="statusForm" (ngSubmit)="onSubmit()">
               <div class="input-group w-100">
                 <textarea type="textArea" formControlName="comment" id="message" placeholder="Message" class="form-control form-control-md" required>
 
                 </textarea>                
                 <button class="btn btn-danger " type="submit">Post Status</button>
               </div>
-            </form>
+            </form> -->
           </div>
          
-          <app-postlist></app-postlist>
+          <app-post-card></app-post-card>
+          <!-- <app-postlist></app-postlist> -->
          
          
         </div>

@@ -1,0 +1,39 @@
+<app-header></app-header>
+<!-- app.component.html -->
+<h1 id="top"><strong>Add Post</strong></h1>
+
+<form [formGroup]="postForm" class="d-flex justify-content-center" id="post">
+    <!--cards-->
+    <div class="card" style="width: 18rem; margin-top: 3rem;">
+
+      <input type="text"
+      formControlName="title"
+      placeholder="Add Title"
+      style="margin: .5rem; margin-top: 1rem; padding: .4rem; border: .2rem; border-color: rgb(46, 46, 46);"
+      >
+
+      <!--Deliver your image -->
+      <ngx-dropzone (change)="onSelect($event)" style="border-color: rgb(134, 134, 134); margin: .3rem;">
+      <ngx-dropzone-label>Add Picture</ngx-dropzone-label>
+      <ngx-dropzone-image-preview 
+      ngProjectAs="ngx-dropzone-preview" 
+      *ngFor="let f of files"
+      [removable]="true" (removed)="onRemove(f)"
+      [file]="f">
+      <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+
+  
+    
+      <div class="card-body">
+      <textarea
+      formControlName="description"
+      cols="28" rows="3" 
+      placeholder="Add description"></textarea>
+     <button (click)="onUpload()"
+      class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+<app-footer></app-footer>
