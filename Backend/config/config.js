@@ -5,7 +5,7 @@ const config={
     },
     default : {
         SECRET: 'mysecretkey',
-        DATABASE: "mongodb+srv://TK:" + encodeURIComponent("Thabo#9") +  "@tk.bq4ujus.mongodb.net/test?retryWrites=true"
+        DATABASE: "mongodb+srv://kjkoenaite:" + encodeURIComponent("karabokoena") + "@cluster0.idioepf.mongodb.net/test?retryWrites=true"
     }
 }
 
