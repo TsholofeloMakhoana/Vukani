@@ -1,18 +1,64 @@
-<div class="card mb-3 wrapper" *ngFor="let p of posts1">
+<!-- <div class="card mb-3 wrapper" *ngFor="let p of posts1"> -->
     <!-- <div><small>{{post.createdOn}}</small></div> -->
-    <div>
+    <!-- <div>
         <span><h1>{{ p?.title }}</h1></span>
     </div>
-    <div>
+    <div> -->
         <!-- <span>Created on:
             {{
                 p?.createdOn.getDate()
             }}
         </span> -->
-    </div>
+    <!-- </div>
     <img src="{{ p?.imageUrl }}"  class="card-img-top" alt="...">
     <div class="card-body">
         <h3>{{ p?.description}}</h3>
     </div>
-  </div>
+  </div> -->
   
+
+
+
+  <div class="card border-success wrapper mb-3"  *ngFor="let p of posts1">
+  <div class="card-header bg-transparent border-success">
+
+
+
+
+<div class="body borderCard  mt-2 mb-2" >
+    <div class="Header">
+    
+    
+      <img src="{{ p?.imageUrl }}" style="text-align: center;"  class="w-12 h-12 object-cover rounded-full border-base-300 border-4" alt="...">
+           <!-- <p class="pt-2 pb-2 font-bold text-left"> {{ p?.title}}</p> -->
+
+      <div class="d-flex justify-content-between flex-col">
+        <p class="pt-2 pb-2 text-[0.7rem]">{{ p?.title }}</p>
+        <!-- <p class="pt-2 pb-2 font-bold text-right"> {{ product?.price  | currency : 'ZAR' : 'R'}}</p> -->
+      </div>
+    </div>
+
+<!--      
+      <div class="flex flex-col justify-end Header Heading">
+        <div class="text-[0.7rem]">{{ product?.title }}</div>
+        <div class="font-bold text-left">R{{ product?.price }}</div>
+      </div> -->
+</div>
+    
+    
+
+
+  </div>
+  <div class="card-body text-success">
+    <h5 class="card-title">{{p?.description}}</h5>
+  <img class="card-img-bottom" src="{{p?.imageUrl}}" alt="Card image cap">
+</div>
+  <div class="card-footer bg-transparent border-success">
+
+      <div class="d-flex justify-content-between  flex-row">
+        <p class="pt-2 pb-2  text-left">Likes</p>
+        <p class="pt-2 pb-2 font-bold text-right">Comments</p>
+      </div>
+  </div>
+</div>
+

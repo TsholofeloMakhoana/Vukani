@@ -4,7 +4,7 @@ import { User } from 'src/app/interface/user';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-post',
@@ -20,8 +20,13 @@ export class AddPostComponent implements OnInit{
   user1: User;
   postForm: FormGroup;
 
+  form: any;
+
+
+
 
   constructor(private _uploadService: UploadService,
+      private fb: FormBuilder, 
     private http: HttpClient,
     private router: Router,
     private postService: PostsService) {
@@ -29,7 +34,9 @@ export class AddPostComponent implements OnInit{
   ngOnInit(): void {
     this.postForm = new FormGroup({
       title: new FormControl(),
-      description: new FormControl()
+      description: new FormControl(),
+        imageUrl: new FormControl()
+
   });
  
   }
@@ -55,6 +62,9 @@ export class AddPostComponent implements OnInit{
     data.append('file', file_data);
     data.append('upload_preset','angular_cloudinary');
     data.append('cloud_name', 'dx7c7wkhu');
+    console.log(file_data,"our file dat");
+    
+    
     
 
 
@@ -69,12 +79,18 @@ export class AddPostComponent implements OnInit{
 
     this._uploadService.uploadImage(data).subscribe((response) => {
 
-      let postData = {
-        "title": this.title,
-        "description": this.description,
-        "imageUrl": response.url,
-        "postedBy": user.id
-        };
+  
+      let url = response.url
+      
+
+
+
+      let postData: any = this.postForm.value
+      postData.imageUrl = url;
+
+      console.log(postData,"got attribs");
+      
+      
       this.http.
         post('http://localhost:8080/api/posts', postData)
         .subscribe((resultData: any) => {
@@ -83,5 +99,18 @@ export class AddPostComponent implements OnInit{
           this.router.navigateByUrl('/home');
          });
     });
+
+
+    //  let postData: any = this.postForm.value
+    //   console.log(postData,"got attribs");
+      
+      
+    //   this.http.
+    //     post('http://localhost:8080/api/posts', postData)
+    //     .subscribe((resultData: any) => {
+          
+    //       alert('Successfuly uploaded');
+    //       this.router.navigateByUrl('/home');
+    //      });
   }
 }

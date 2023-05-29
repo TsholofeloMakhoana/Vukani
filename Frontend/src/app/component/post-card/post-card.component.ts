@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Posts } from 'src/app/interface/posts';
+import { CrudStatusService } from 'src/app/services/StatusService/crud-status.service';
 import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class PostCardComponent implements OnInit{
   @Input() post?: Posts;
 
   constructor(
-    private postService: PostsService
+    private postService: PostsService,
+    public crudStatus: CrudStatusService
   ){}
 
   getPosts(){
