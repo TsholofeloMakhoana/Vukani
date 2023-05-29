@@ -20,7 +20,7 @@
 
 
   <div class="card border-success wrapper mb-3"  *ngFor="let p of posts1">
-  <div class="card-header bg-transparent border-success">
+  <div class="card-header bg-transparent">
 
 
 
@@ -29,11 +29,11 @@
     <div class="Header">
     
     
-      <img src="{{ p?.imageUrl }}" style="text-align: center;"  class="w-12 h-12 object-cover rounded-full border-base-300 border-4" alt="...">
+      <img src="../../../assets/images/user1.png" style="text-align: center;"  class="w-12 h-12 object-cover rounded-full " alt="...">
            <!-- <p class="pt-2 pb-2 font-bold text-left"> {{ p?.title}}</p> -->
 
-      <div class="d-flex justify-content-between flex-col">
-        <p class="pt-2 pb-2 text-[0.7rem]">{{ p?.title }}</p>
+      <div class="d-flex text-left ">
+        <h2 id="name" class="pt-2 pb-2 text-[1.5rem]">{{ loggedObject }}</h2>
         <!-- <p class="pt-2 pb-2 font-bold text-right"> {{ product?.price  | currency : 'ZAR' : 'R'}}</p> -->
       </div>
     </div>
@@ -49,8 +49,8 @@
 
 
   </div>
-  <div class="card-body text-success">
-    <h5 class="card-title">{{p?.description}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{p?.title}}</h5>
   <img class="card-img-bottom" src="{{p?.imageUrl}}" alt="Card image cap">
 </div>
   <div class="card-footer bg-transparent border-success">

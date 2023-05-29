@@ -57,8 +57,11 @@ body{
     width: 100%;
     height: 15%;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
+   }
+   #name{
+    padding-left: 1rem;
    }
    .Heading{
     font-size: 20px;

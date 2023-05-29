@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { Posts } from 'src/app/interface/posts';
 import { PostsService } from 'src/app/services/posts.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,7 +23,7 @@ export class HomeComponent  implements OnInit  {
     private router: Router,
     private ngZone: NgZone,
     private crudService: CrudStatusService,
-    private postService: PostsService
+    private postService: PostsService,
   )
    { 
     this.statusForm = this.formBuilder.group({
@@ -37,6 +38,9 @@ export class HomeComponent  implements OnInit  {
       this.posts = data;
     })
   }
+
+
+  
 
   username = localStorage.getItem("username");
   ngOnInit() { 

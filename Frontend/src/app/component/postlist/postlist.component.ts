@@ -14,7 +14,7 @@ export class PostlistComponent implements OnInit {
  
   ngOnInit(): void {
     this.crudStatusService.GetPosts().subscribe(res => {
-      console.log(res)
+      console.log(res,"11111")
       this.Posts =res;
     });    
   }

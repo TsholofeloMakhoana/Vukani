@@ -44,19 +44,21 @@ export class LoginComponent implements OnInit {
  
 
   login() {
-    console.log(this.loginForm.value,"for group value");
     
   
     this.http.post("http://localhost:8080/api/login",this.loginForm.value).subscribe((resultData: any)=>
     {
   
-      console.log();
+      console.log(resultData,"data");
       
       let result = resultData.email.indexOf("@");
 
-      localStorage.setItem("username",JSON.stringify(resultData));
+      // localStorage.setItem("username",JSON.stringify(resultData));
+      localStorage.setItem("loggedUser", JSON.stringify(resultData));
+     //localStorage.setItem("loggedUserName",JSON.stringify(resultData.));
 
-      // localStorage.setItem("username",resultData.email.substr(0, result));
+
+      localStorage.setItem("username",resultData.email.substr(0, result));
 
       if (this.loginForm.valid) {
         this.authService.login(this.loginForm.value);

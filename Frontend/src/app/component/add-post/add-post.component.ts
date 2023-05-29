@@ -35,7 +35,9 @@ export class AddPostComponent implements OnInit{
     this.postForm = new FormGroup({
       title: new FormControl(),
       description: new FormControl(),
-        imageUrl: new FormControl()
+      imageUrl: new FormControl(),
+      postedBy: new FormControl(),
+      username: new FormControl()
 
   });
  
@@ -69,7 +71,7 @@ export class AddPostComponent implements OnInit{
 
 
     let user : User
-    let loggedUser = localStorage.getItem("username")
+    let loggedUser = localStorage.getItem("loggedUser")
     if(loggedUser){
         user = JSON.parse(loggedUser)     
     }
@@ -87,6 +89,8 @@ export class AddPostComponent implements OnInit{
 
       let postData: any = this.postForm.value
       postData.imageUrl = url;
+      postData.postedBy = user.id;
+      postData.username = user.email
 
       console.log(postData,"got attribs");
       
