@@ -8,6 +8,7 @@ import { AuthGuard } from './services/auth.guard';
 import { SearchlistComponent } from './component/searchlist/searchlist.component';
 import { PostCardComponent } from './component/post-card/post-card.component';
 import { AddPostComponent } from './component/add-post/add-post.component';
+import { FilterPipe } from './filter.pipe';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch:'full'},
@@ -21,6 +22,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+   declarations: [
+  
+  ]
 })
 export class AppRoutingModule { }

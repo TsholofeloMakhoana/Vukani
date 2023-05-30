@@ -157,13 +157,25 @@ app.use('/api', UserRoute)
  app.get('/api/posts', async (req, res) => {
      
      try {
-         const posts = await Posts.find({});
+         const posts = await Posts.find({}).populate("postedBy","_id firstname");
          res.status(200).json(posts);
          console.log("Posts found");
      } catch (error) {
          res.status(500).json({ message: error.message });
      }
  });
+ app.get('/api/myposts', async (req, res) => {
+     
+    try {
+        const posts = await Posts.find({postedBy:req._id})
+                            .populate("postedBy","_id firstname");
+        res.status(200).json({posts});
+        console.log(posts);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
  
  //get single post
  app.get('/api/posts/:id', async (req, res) => {

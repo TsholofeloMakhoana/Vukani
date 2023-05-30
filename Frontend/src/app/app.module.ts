@@ -26,6 +26,7 @@ import { SearchComponentComponent } from './component/search-component/search-co
 import { SearchlistComponent } from './component/searchlist/searchlist.component';
 import { PostCardComponent } from './component/post-card/post-card.component';
 import { AddPostComponent } from './component/add-post/add-post.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -46,7 +47,8 @@ import { AddPostComponent } from './component/add-post/add-post.component';
     SearchComponentComponent,
     SearchlistComponent,
     PostCardComponent,
-    AddPostComponent
+    AddPostComponent,
+    FilterPipe
 
   ],
   imports: [

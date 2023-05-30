@@ -34,7 +34,9 @@ const userSchema=mongoose.Schema({
     },
     token:{
         type: String
-    }
+    },
+    // followers:[{type:ObjectId,ref:"User"}],
+    // following:[{type:ObjectId,ref:"User"}]
 });
 // to signup a user
 userSchema.pre('save',function(next){

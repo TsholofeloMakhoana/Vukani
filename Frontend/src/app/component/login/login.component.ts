@@ -47,10 +47,7 @@ export class LoginComponent implements OnInit {
     
   
     this.http.post("http://localhost:8080/api/login",this.loginForm.value).subscribe((resultData: any)=>
-    {
-  
-      console.log(resultData,"data");
-      
+    {    
       let result = resultData.email.indexOf("@");
 
       // localStorage.setItem("username",JSON.stringify(resultData));

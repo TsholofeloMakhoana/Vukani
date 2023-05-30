@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Posts } from '../interface/posts';
 import { User } from '../interface/user';
@@ -10,6 +10,8 @@ const userUrl = 'http://localhost:8080/api/users';
   providedIn: 'root'
 })
 export class PostsService {
+
+  public search = new BehaviorSubject<string>("");
 
   constructor(private httpClient: HttpClient) { }
 
@@ -36,5 +38,9 @@ export class PostsService {
 
   findByTitle(title: any): Observable<Posts[]> {
     return this.httpClient.get<Posts[]>(`${url}?title=${title}`);
+  }
+
+  searchUsers(searchTerm: string){
+    this.search.next(searchTerm)
   }
 }

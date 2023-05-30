@@ -19,7 +19,7 @@
 
 
 
-  <div class="card border-success wrapper mb-3"  *ngFor="let p of posts1">
+  <div class="card border-success wrapper mb-3"  *ngFor="let p of pos">
   <div class="card-header bg-transparent">
 
 
@@ -33,7 +33,7 @@
            <!-- <p class="pt-2 pb-2 font-bold text-left"> {{ p?.title}}</p> -->
 
       <div class="d-flex text-left ">
-        <h2 id="name" class="pt-2 pb-2 text-[1.5rem]">{{ loggedObject }}</h2>
+        <h2 id="name" class="pt-2 pb-2 text-[1.5rem]">{{ p?.postedBy.firstname}}</h2>
         <!-- <p class="pt-2 pb-2 font-bold text-right"> {{ product?.price  | currency : 'ZAR' : 'R'}}</p> -->
       </div>
     </div>
