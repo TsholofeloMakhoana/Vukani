@@ -27,6 +27,7 @@ import { SearchlistComponent } from './component/searchlist/searchlist.component
 import { PostCardComponent } from './component/post-card/post-card.component';
 import { AddPostComponent } from './component/add-post/add-post.component';
 import { FilterPipe } from './filter.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -67,7 +68,7 @@ import { FilterPipe } from './filter.pipe';
         component: HomeComponent,
         canActivate: [AuthGuard]
       }
-    ])
+    ]),
   ],
   
   providers: [AuthGuard,CommonService],

@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   searchTerm: string;
   searchKey: string;
 
-  users: any[];
+  users: User[];
   title='';
 // search(arg0: string) {
 // throw new Error('Method not implemented.');

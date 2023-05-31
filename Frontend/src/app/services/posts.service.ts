@@ -36,11 +36,11 @@ export class PostsService {
     )
   }
 
-  findByTitle(title: any): Observable<Posts[]> {
-    return this.httpClient.get<Posts[]>(`${url}?title=${title}`);
+  findByTitle(title: any): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${userUrl}?title=${title}`);
   }
 
-  searchUsers(searchTerm: string){
-    this.search.next(searchTerm)
+  searchUsers(searchText: string){
+    this.search.next(searchText)
   }
 }
