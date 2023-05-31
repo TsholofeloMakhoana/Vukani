@@ -11,9 +11,11 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class PostCardComponent implements OnInit{
 
-  posts1: Posts[] = [];
+  // posts1: Posts[] = [];
   @Input() post?: Posts;
    public loggedObject :any
+   pos : any;
+
 
   constructor(
     private postService: PostsService,
@@ -25,10 +27,12 @@ export class PostCardComponent implements OnInit{
     this.postService.getAllPosts().subscribe(data => {
       this.loggedObject = localStorage.getItem("username")
       
+      console.log(data,"all posts");
 
-      this.posts1 = data;
-      console.log(data);
       
+      
+      this.pos = data;
+    
       
       
     })

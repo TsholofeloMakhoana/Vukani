@@ -1,9 +1,9 @@
 export interface Posts {
     id: string;
-    postedBy: string;
+    postedBy: [{firstname},{_id}];
     title: string;
     description:string;
     imageUrl: string;
-    createdOn: Date;
+    createdAt: string;
     comments: [];   
 }

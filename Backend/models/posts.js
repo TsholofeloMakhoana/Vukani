@@ -8,23 +8,15 @@ const postsSchema=mongoose.Schema({
     imageUrl:{
         type: String
     },
-    description:{
-        type:String
-    },
     postedBy: {
        type: mongoose.Schema.Types.ObjectId,
-        // type: String,
-        // required: true,
-        trim: true,
+        required: true,
         ref:'User' 
     },
-    createdOn: Date,
-    comments: [{
-        type: String,
-        body: "string",
-        by:mongoose.Schema.Types.ObjectId
-    }],
-   
+    // comments:[{
+    //     text:String,
+    //     postedBy:{type:ObjectId,ref:"User"}
+    // }],
 },
     {timestamps:true},
 );

@@ -1,6 +1,38 @@
+<div class="form-group">
+    <!-- <label style="width: 14rem;" class="searchInput" for="searchInput">Search</label>
+    <input id="searchInput" class="form-control custom-search" type="search" [(ngModel)]="searchText" (keyup)="search($event)" placeholder="Search for a user" aria-label="Search"> -->
 
-    <input class="form-control form-control-md" size="40px" placeholder="Search Friends" type ="text"[(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
 
-   
+  </div>
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let user of users | filter:searchTerm:'firstname'">
+      <a href="#" class="text-decoration-none">
+        <div class="card">
+          <div class="card-body text-center">
+            <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mb-2" *ngIf="searchTerm">
+            <h6 class="card-title" *ngIf="searchTerm">{{ user.firstname }}</h6>
+            <a href="#" class="btn btn-outline-info btn-sm" *ngIf="searchTerm">
+              <i class="fas fa-user-friends"></i> Follow
+            </a>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 
-
+  <div class="row">
+  
+  <div class="col-sm-2" *ngFor="let user of users | filter: searchText:'firstname'">
+  <a href="#" class="text-decoration-none">
+    <li class="media hover-media">
+      <img src="../../../assets/images/user1.png" alt="img" width="60px" height="60px" class="rounded-circle mr-3">
+      <div class="media-body text-dark">
+        <h6 class="media-header">{{ user.firstname }}               
+        </h6>    
+        <a href="#" class="btn btn-outline-info  btn-sm" >
+          <i class="fas fa-user-friends"></i>Follow </a>           
+      </div>
+    </li>
+  </a>
+  </div>
+</div>

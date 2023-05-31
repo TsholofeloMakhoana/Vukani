@@ -25,9 +25,15 @@
 			  <button class="btn btn-sm btn-danger " type="submit">Search</button> -->
 
 				  <!-- <a href="#modalview" data-toggle="modal" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium nav-link">Following</a> -->
-				  
-				  <app-search-component (searchTextChanged)="onSearchTextEntered($event)" class="text hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium nav-link"></app-search-component>
-				  <button class="btn btn-sm btn-danger " routerLink="/searchlist">Search Users</button> 
+				  <div class="form-group" style="margin-bottom: 2rem;">
+					<label style="width: 14rem;" class="searchInput" for="searchInput">Search</label>
+					<input id="searchInput" class="form-control custom-search" type="search" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search for a user" aria-label="Search">
+
+				  </div>
+
+				  <!-- <div class="col-sm-3" *ngFor="let user of users">{{ user.firstname }}</div> -->
+				  <!-- <app-search-component (searchTextChanged)="onSearchTextEntered($event)" class="text hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium nav-link"></app-search-component> -->
+				  <!-- <button class="btn btn-sm btn-danger " routerLink="/searchlist">Search Users</button>  -->
 			</div>
 		  </div>
 		</div>
