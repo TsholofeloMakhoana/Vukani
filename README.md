@@ -1,4 +1,4 @@
-Vukani Social Media App Twitter Follow
+Vukani Social Media App
 Vukani is a functional social media app with multiple features built with angular and typescript.
 
  Requirements
